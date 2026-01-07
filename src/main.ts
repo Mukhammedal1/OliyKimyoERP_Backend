@@ -33,7 +33,7 @@ async function bootstrap() {
   SwaggerModule.setup('api-swagger', app, document);
 
   await app.listen(PORT, async () => {
-    console.log(`http://localhost:${PORT}/api-swagger`);
+    console.log(`https://oliykimyoerp-backend.onrender.com/api-swagger`);
   });
 }
 bootstrap();
