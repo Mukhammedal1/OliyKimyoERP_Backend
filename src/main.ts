@@ -9,7 +9,10 @@ async function bootstrap() {
   process.env.TZ = 'Asia/Tashkent';
 
   const app = await NestFactory.create(AppModule);
-  app.enableCors({ origin: 'https://oliykimyoerp-backend.onrender.com', credentials: true });
+  app.enableCors({
+    origin: 'https://oliy-kimyo-erp-frontend-7s97.vercel.app/',
+    credentials: true,
+  });
 
   app.useGlobalPipes(
     new ValidationPipe({
