@@ -10,7 +10,7 @@ async function bootstrap() {
 
   const app = await NestFactory.create(AppModule);
   app.enableCors({
-    origin: 'https://oliy-kimyo-erp-frontend-7s97.vercel.app/',
+    origin: 'http://138.249.7.187:3000',
     credentials: true,
   });
 
