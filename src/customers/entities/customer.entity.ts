@@ -11,7 +11,8 @@ export class Customer {
   @Prop({ type: Number, required: false, default: 0 })
   debt_amount: number;
 
-
+  @Prop({ type: String, required: false })
+  note: string;
 }
 
 export const CustomerSchema = SchemaFactory.createForClass(Customer);

@@ -7,6 +7,7 @@ import { Model, Types } from 'mongoose';
 import { TransactionsService } from '../transactions/transactions.service';
 import { CustomersService } from '../customers/customers.service';
 import { CategoryTypeEnum, IncomeExpenseTypeEnum } from '../common/enums';
+import { log } from 'node:console';
 
 @Injectable()
 export class SaleService {
@@ -37,6 +38,14 @@ export class SaleService {
   async findAll() {
     return await this.saleModel
       .find()
+      .populate('customer')
+      .populate('products.product_id');
+  }
+
+  async findAllByCustomerId(id: string) {
+    console.log(id);
+    return await this.saleModel
+      .find({ customer: id })
       .populate('customer')
       .populate('products.product_id');
   }

@@ -1,5 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { Type } from 'class-transformer';
 import {
+  IsDate,
   IsNotEmpty,
   IsNumber,
   IsOptional,
@@ -12,7 +14,7 @@ export class CreateCustomerDto {
   @ApiProperty()
   @IsNotEmpty()
   @IsString()
-  @Length(3, 20, { message: 'Name 3 dan 20 gacha bo‘lishi kerak' })
+  @Length(3, 20, { message: "Name 3 dan 20 gacha bo'lishi kerak" })
   name: string;
 
   @ApiProperty()
@@ -26,4 +28,9 @@ export class CreateCustomerDto {
   @IsOptional()
   @IsNumber()
   debt_amount: number;
+
+  @ApiProperty()
+  @IsOptional()
+  @IsString()
+  note: string;
 }

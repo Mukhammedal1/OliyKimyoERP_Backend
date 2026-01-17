@@ -10,7 +10,8 @@ async function bootstrap() {
 
   const app = await NestFactory.create(AppModule);
   app.enableCors({
-    origin: 'http://138.249.7.187:3000',
+    origin: `http://localhost:3000`,
+    // origin: 'http://138.249.7.187:3000',
     credentials: true,
   });
 
@@ -33,7 +34,8 @@ async function bootstrap() {
   SwaggerModule.setup('api-swagger', app, document);
 
   await app.listen(PORT, async () => {
-    console.log(`http://138.249.7.187:${PORT}/api-swagger`);
+    // console.log(`http://138.249.7.187:${PORT}/api-swagger`);
+    console.log(`http://localhost:${PORT}/api-swagger`);
   });
 }
 bootstrap();
