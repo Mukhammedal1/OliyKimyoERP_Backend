@@ -10,8 +10,8 @@ async function bootstrap() {
 
   const app = await NestFactory.create(AppModule);
   app.enableCors({
-    // origin: `http://localhost:3000`,
-    origin: 'http://138.249.7.187:3000',
+    origin: `http://localhost:3000`,
+    // origin: 'http://138.249.7.187:3000',
     credentials: true,
   });
 
@@ -22,7 +22,7 @@ async function bootstrap() {
       transform: true,
     }),
   );
-  app.use(cookieParser());
+  // app.use(cookieParser());
 
   const options = new DocumentBuilder()
     .setTitle('Sales Management System')

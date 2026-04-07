@@ -39,7 +39,12 @@ export class SaleService {
     return await this.saleModel
       .find()
       .populate('customer')
-      .populate('products.product_id');
+      .populate({
+        path: 'products.product_id',
+        populate: {
+          path: 'unit',
+        },
+      });
   }
 
   async findAllByCustomerId(id: string) {
@@ -55,10 +60,18 @@ export class SaleService {
       .findOne({
         _id: new Types.ObjectId(id),
       })
-      .populate('customer');
+      .populate('customer')
+      .populate({
+        path: 'products.product_id',
+        populate: {
+          path: 'unit',
+          model: 'Unit',
+        },
+      });
     if (!result) {
       throw new NotFoundException('Sale topilmadi');
     }
+    console.log(result);
     return result;
   }
 
