@@ -5,13 +5,12 @@ import { ValidationPipe } from '@nestjs/common';
 import * as cookieParser from 'cookie-parser';
 
 async function bootstrap() {
-  const PORT = process.env.PORT ?? 3001;
+  const PORT = process.env.PORT ?? 3003;
   process.env.TZ = 'Asia/Tashkent';
 
   const app = await NestFactory.create(AppModule);
   app.enableCors({
-    origin: `http://localhost:3000`,
-    // origin: 'http://138.249.7.187:3000',
+    origin: true,
     credentials: true,
   });
 
